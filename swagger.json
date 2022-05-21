@@ -1,0 +1,185 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "My Garden API",
+    "description": "Chris Fowler's Personal Project for CSE341",
+    "version": "1.0.0"
+  },
+  "host": "cfowl-garden.herokuapp.com",
+  "basePath": "/",
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/plantsInfo/": {
+      "get": {
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "plant": {
+                  "example": "any"
+                },
+                "type": {
+                  "example": "any"
+                },
+                "seedsPerOunce": {
+                  "example": "any"
+                },
+                "seedsPer100Feet": {
+                  "example": "any"
+                },
+                "sowingDepth": {
+                  "example": "any"
+                },
+                "daysToGermination": {
+                  "example": "any"
+                },
+                "rowSpacing": {
+                  "example": "any"
+                },
+                "plantSpacing": {
+                  "example": "any"
+                },
+                "daysToHarvest": {
+                  "example": "any"
+                },
+                "plantingDate": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/plantsInfo/{id}": {
+      "get": {
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "put": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "plant": {
+                  "example": "any"
+                },
+                "type": {
+                  "example": "any"
+                },
+                "seedsPerOunce": {
+                  "example": "any"
+                },
+                "seedsPer100Feet": {
+                  "example": "any"
+                },
+                "sowingDepth": {
+                  "example": "any"
+                },
+                "daysToGermination": {
+                  "example": "any"
+                },
+                "rowSpacing": {
+                  "example": "any"
+                },
+                "plantSpacing": {
+                  "example": "any"
+                },
+                "daysToHarvest": {
+                  "example": "any"
+                },
+                "plantingDate": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "delete": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    }
+  }
+}
