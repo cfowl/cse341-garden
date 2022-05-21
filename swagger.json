@@ -46,19 +46,19 @@
                   "example": "any"
                 },
                 "seedsPer100Feet": {
-                  "example": "any"
+                  "example": ["any", "unit"]
                 },
                 "sowingDepth": {
-                  "example": "any"
+                  "example": ["any", "unit"]
                 },
                 "daysToGermination": {
                   "example": "any"
                 },
                 "rowSpacing": {
-                  "example": "any"
+                  "example": ["any", "unit"]
                 },
                 "plantSpacing": {
-                  "example": "any"
+                  "example": ["any", "unit"]
                 },
                 "daysToHarvest": {
                   "example": "any"
@@ -128,19 +128,19 @@
                   "example": "any"
                 },
                 "seedsPer100Feet": {
-                  "example": "any"
+                  "example": ["any", "unit"]
                 },
                 "sowingDepth": {
-                  "example": "any"
+                  "example": ["any", "unit"]
                 },
                 "daysToGermination": {
                   "example": "any"
                 },
                 "rowSpacing": {
-                  "example": "any"
+                  "example": ["any", "unit"]
                 },
                 "plantSpacing": {
-                  "example": "any"
+                  "example": ["any", "unit"]
                 },
                 "daysToHarvest": {
                   "example": "any"
