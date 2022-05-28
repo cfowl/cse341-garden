@@ -13,7 +13,8 @@
   "paths": {
     "/seeds/": {
       "get": {
-        "description": "",
+        "description": "Gets all seeds from the list",
+        "tags": ["Seed List"],
         "produces": [
           "application/json"
         ],
@@ -28,7 +29,8 @@
         }
       },
       "post": {
-        "description": "",
+        "description": "Creates a new seed",
+        "tags": ["Seed List"],
         "parameters": [
           {
             "name": "body",
@@ -82,7 +84,8 @@
     },
     "/seeds/{id}": {
       "get": {
-        "description": "",
+        "description": "Gets a seed by ID",
+        "tags": ["Seed List"],
         "produces": [
           "application/json"
         ],
@@ -104,7 +107,8 @@
         }
       },
       "put": {
-        "description": "",
+        "description": "Updates a seed by ID",
+        "tags": ["Seed List"],
         "parameters": [
           {
             "name": "id",
@@ -162,7 +166,8 @@
         }
       },
       "delete": {
-        "description": "",
+        "description": "Deletes a seed by ID",
+        "tags": ["Seed List"],
         "parameters": [
           {
             "name": "id",
@@ -183,7 +188,8 @@
     },
     "/garden-log/": {
       "get": {
-        "description": "",
+        "description": "Gets all garden log entries from the list",
+        "tags": ["Garden Log"],
         "produces": [
           "application/json"
         ],
@@ -198,7 +204,8 @@
         }
       },
       "post": {
-        "description": "",
+        "description": "Creates a new garden log entry",
+        "tags": ["Garden Log"],
         "parameters": [
           {
             "name": "body",
@@ -249,7 +256,8 @@
     },
     "/garden-log/{id}": {
       "get": {
-        "description": "",
+        "description": "Gets a garden log entry by ID",
+        "tags": ["Garden Log"],
         "produces": [
           "application/json"
         ],
@@ -271,7 +279,8 @@
         }
       },
       "put": {
-        "description": "",
+        "description": "Updates a garden log entry by ID",
+        "tags": ["Garden Log"],
         "parameters": [
           {
             "name": "id",
@@ -326,7 +335,8 @@
         }
       },
       "delete": {
-        "description": "",
+        "description": "Deletes a garden log entry by ID",
+        "tags": ["Garden Log"],
         "parameters": [
           {
             "name": "id",
