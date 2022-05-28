@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const seedsController = require('../controllers/seeds');
+const validation = require('../middleware/seedValidator');
 
 // gets all plants' info at /seeds route
 router.get('/', seedsController.getAllSeeds);
@@ -8,10 +9,10 @@ router.get('/', seedsController.getAllSeeds);
 router.get('/:id', seedsController.getOneSeed);
 
 // creates new plant's info at /seeds route
-router.post('/', seedsController.createSeed);
+router.post('/', validation.saveSeed, seedsController.createSeed);
 
 // updates a plant's info at /seeds/id route
-router.put('/:id', seedsController.updateSeed);
+router.put('/:id', validation.saveSeed, seedsController.updateSeed);
 
 // deletes a plant's info at /seeds/id route
 router.delete('/:id', seedsController.deleteSeed);
