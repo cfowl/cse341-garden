@@ -21,7 +21,10 @@ async function getAllSeeds(req, res) {
   
 // gets one seed's info by ID
 async function getOneSeed(req, res) {
-    if (!ObjectId.isValid(req.params.id)) res.status(400).json('Must use a valid seed ID to find a seed\'s info.');
+    if (!ObjectId.isValid(req.params.id)) {
+        res.status(400).json('Must use a valid seed ID to get a seed\'s info.');
+        return;
+    }
 
     try {
         const seedId = new ObjectId(req.params.id);
@@ -66,7 +69,10 @@ async function createSeed(req, res) {
 
 // updates one seed's info by ID
 async function updateSeed(req, res) {
-    if (!ObjectId.isValid(req.params.id)) res.status(400).json('Must use a valid seed ID to update a seed\'s info.');
+    if (!ObjectId.isValid(req.params.id)) {
+        res.status(400).json('Must use a valid seed ID to update a seed\'s info.');
+        return;
+    }
     
     try {
         const seedId = new ObjectId(req.params.id);
@@ -93,7 +99,10 @@ async function updateSeed(req, res) {
 
 // deletes a seed's info by ID
 async function deleteSeed(req, res) {
-    if (!ObjectId.isValid(req.params.id)) res.status(400).json('Must use a valid seed ID to delete a seed\'s info.');
+    if (!ObjectId.isValid(req.params.id)) {
+        res.status(400).json('Must use a valid seed ID to delete a seed\'s info.');
+        return;
+    }
     
     try {
         const seedId = new ObjectId(req.params.id);

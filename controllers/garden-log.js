@@ -21,7 +21,10 @@ async function getAllEntries(req, res) {
   
 // gets one garden log entry by ID
 async function getOneEntry(req, res) {
-    if (!ObjectId.isValid(req.params.id)) res.status(400).json('Must use a valid garden log ID to find an entry.');
+    if (!ObjectId.isValid(req.params.id)) {
+        res.status(400).json('Must use a valid garden log ID to get a garden log entry.');
+        return;
+    }
 
     try {
         const entryId = new ObjectId(req.params.id);
@@ -65,7 +68,10 @@ async function createEntry(req, res) {
 
 // updates one garden log entry by ID
 async function updateEntry(req, res) {
-    if (!ObjectId.isValid(req.params.id)) res.status(400).json('Must use a valid garden log ID to update an entry.');
+    if (!ObjectId.isValid(req.params.id)) {
+        res.status(400).json('Must use a valid garden log ID to update a garden log entry.');
+        return;
+    }
     
     try {
         const entryId = new ObjectId(req.params.id);
@@ -91,7 +97,10 @@ async function updateEntry(req, res) {
 
 // deletes a garden log entry by ID
 async function deleteEntry(req, res) {
-    if (!ObjectId.isValid(req.params.id)) res.status(400).json('Must use a valid garden log ID to delete an entry.');
+    if (!ObjectId.isValid(req.params.id)) {
+        res.status(400).json('Must use a valid garden log ID to delete a garden log entry.');
+        return;
+    }
     
     try {
         const entryId = new ObjectId(req.params.id);
