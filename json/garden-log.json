@@ -1,0 +1,41 @@
+[{
+    "year": "2022",
+    "seedName": "Beans",
+    "seedType": "Bush",
+    "variety": "Blue Lake",
+    "plantedQty": "80",
+    "plantedDate": "05/28/2022",
+    "harvestedQty": "60 lbs",
+    "harvestedDate": "07/01/2022 - 08/31/2022",
+    "notes": "Great flavor and bountiful harvest."
+},{
+    "year": "2022",
+    "seedName": "Corn",
+    "seedType": "Sugar-Enhanced",
+    "variety": "Sugarbuns",
+    "plantedQty": "100",
+    "plantedDate": "05/28/2022",
+    "harvestedQty": "200 ears",
+    "harvestedDate": "08/04/2022",
+    "notes": "Perfect ears, froze 15 gallons and gave the rest to the chickens."
+},{
+    "year": "2022",
+    "seedName": "Pumpkin",
+    "seedType": "Pie",
+    "variety": "Early Sugar Pie",
+    "plantedQty": "3",
+    "plantedDate": "05/28/2022",
+    "harvestedQty": "17 pumpkins",
+    "harvestedDate": "10/07/2022",
+    "notes": "Make great homemande pumpkin pie, cook well."
+},{
+    "year": "2022",
+    "seedName": "Peas",
+    "seedType": "Shelling",
+    "variety": "Victory Freezer",
+    "plantedQty": "50",
+    "plantedDate": "05/28/2022",
+    "harvestedQty": "40 lbs",
+    "harvestedDate": "07/01/2022 - 08/01/2022",
+    "notes": "Taste good, chickens love them. It got too hot and cut the harvest short."
+}]
