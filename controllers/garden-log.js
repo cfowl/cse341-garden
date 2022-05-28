@@ -54,7 +54,7 @@ async function createEntry(req, res) {
             harvestedDate: req.body.harvestedDate,
             notes: req.body.notes
         };
-        const result = await mongodb.getDb().db().collection('garden-log').insertOne(seedInfo);
+        const result = await mongodb.getDb().db().collection('garden-log').insertOne(entry);
         console.log(result);
         if(result.acknowledged) res.status(201).json(result);
         else res.status(500).json(result.error || `An error occurred while inserting the garden log entry.`);
