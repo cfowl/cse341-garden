@@ -4,6 +4,6 @@ const router = require('express').Router();
 router.use('/', require('./swagger'));
 
 // contacts route
-router.use('/plantsInfo', require('./plantsInfo'));
+router.use('/seeds', require('./seeds'));
 
 module.exports = router;

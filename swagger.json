@@ -11,7 +11,7 @@
     "https"
   ],
   "paths": {
-    "/plantsInfo/": {
+    "/seeds/": {
       "get": {
         "description": "",
         "produces": [
@@ -36,7 +36,7 @@
             "schema": {
               "type": "object",
               "properties": {
-                "plant": {
+                "name": {
                   "example": "any"
                 },
                 "type": {
@@ -46,19 +46,19 @@
                   "example": "any"
                 },
                 "seedsPer100Feet": {
-                  "example": ["any", "unit"]
+                  "example": "any"
                 },
                 "sowingDepth": {
-                  "example": ["any", "unit"]
+                  "example": "any"
                 },
                 "daysToGermination": {
                   "example": "any"
                 },
                 "rowSpacing": {
-                  "example": ["any", "unit"]
+                  "example": "any"
                 },
                 "plantSpacing": {
-                  "example": ["any", "unit"]
+                  "example": "any"
                 },
                 "daysToHarvest": {
                   "example": "any"
@@ -80,7 +80,7 @@
         }
       }
     },
-    "/plantsInfo/{id}": {
+    "/seeds/{id}": {
       "get": {
         "description": "",
         "produces": [
@@ -118,7 +118,7 @@
             "schema": {
               "type": "object",
               "properties": {
-                "plant": {
+                "name": {
                   "example": "any"
                 },
                 "type": {
@@ -128,19 +128,19 @@
                   "example": "any"
                 },
                 "seedsPer100Feet": {
-                  "example": ["any", "unit"]
+                  "example": "any"
                 },
                 "sowingDepth": {
-                  "example": ["any", "unit"]
+                  "example": "any"
                 },
                 "daysToGermination": {
                   "example": "any"
                 },
                 "rowSpacing": {
-                  "example": ["any", "unit"]
+                  "example": "any"
                 },
                 "plantSpacing": {
-                  "example": ["any", "unit"]
+                  "example": "any"
                 },
                 "daysToHarvest": {
                   "example": "any"

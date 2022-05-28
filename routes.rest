@@ -1,94 +1,94 @@
 // LOCALHOST APP //-----------------------------------------------------
-### get all plants' info
-GET http://localhost:3000/plantsInfo
+### get all seeds
+GET http://localhost:3000/seeds
 
-### get plant's info by ID
-GET http://localhost:3000/plantsInfo/628924569bb4dc7e6f29a114
-### get plant's info by ID
-GET http://localhost:3000/plantsInfo/628924569bb4dc7e6f29a118
+### get seed by ID
+GET http://localhost:3000/seeds/62925506f94e79661b50f35c
+### get seed by ID
+GET http://localhost:3000/seeds/62925506f94e79661b50f361
 
-### create new plant's info
-POST http://localhost:3000/plantsInfo HTTP/1.1
+### create new seed
+POST http://localhost:3000/seeds HTTP/1.1
 Content-Type: application/json
 
 {
-  "plant": "Watermelon",
+  "name": "Watermelon",
   "type": null,
   "seedsPerOunce": "250",
-  "seedsPer100Feet": ["1", "oz"],
-  "sowingDepth": ["1/4", "inches"],
+  "seedsPer100Feet": "1 oz",
+  "sowingDepth": "1/4 inches",
   "daysToGermination": "10-14",
-  "rowSpacing": ["6-8", "feet"],
-  "plantSpacing": ["2-3", "feet"],
+  "rowSpacing": "6-8 feet",
+  "plantSpacing": "2-3 feet",
   "daysToHarvest": "75-90",
   "plantingDate": "Plant when soil is warm (after Memorial Day)."
 }
 
-### update plant's info by ID
-PUT http://localhost:3000/plantsInfo/pasteIdHere HTTP/1.1
+### update seed by ID
+PUT http://localhost:3000/seeds/pasteIdHere HTTP/1.1
 Content-Type: application/json
 
 {
-  "plant": "Watermelon",
+  "name": "Watermelon",
   "type": "Yummy",
   "seedsPerOunce": "250",
-  "seedsPer100Feet": ["1", "oz"],
-  "sowingDepth": ["1/4", "inches"],
+  "seedsPer100Feet": "1 oz",
+  "sowingDepth": "1/4 inches",
   "daysTogermination": "10-14",
-  "rowSpacing": ["6-8", "feet"],
-  "plantSpacing": ["2-3", "feet"],
+  "rowSpacing": "6-8 feet",
+  "plantSpacing": "2-3 feet",
   "daysToHarvest": "75-90",
   "plantingDate": "Plant when the soil is warm (after Memorial Day)."
 }
 
-### delete plant's Info by ID
-DELETE http://localhost:3000/plantsInfo/pasteIdHere HTTP/1.1
+### delete seed by ID
+DELETE http://localhost:3000/seeds/pasteIdHere HTTP/1.1
 
 
 // HEROKU APP // -------------------------------------------------------
-### get all plants' info
-GET https://cfowl-garden.herokuapp.com/plantsInfo
+### get all seeds
+GET https://cfowl-garden.herokuapp.com/seeds
 
-### get plant's info by ID
-GET https://cfowl-garden.herokuapp.com/plantsInfo/628924569bb4dc7e6f29a114
-### get plant's info by ID
-GET https://cfowl-garden.herokuapp.com/plantsInfo/628924569bb4dc7e6f29a118
+### get seed by ID
+GET https://cfowl-garden.herokuapp.com/seeds/628924569bb4dc7e6f29a114
+### get seed by ID
+GET https://cfowl-garden.herokuapp.com/seeds/628924569bb4dc7e6f29a118
 
-### create new plant's info
-POST http://cfowl-garden.herokuapp.com/plantsInfo HTTP/1.1
+### create new seed
+POST http://cfowl-garden.herokuapp.com/seeds HTTP/1.1
 Content-Type: application/json
 
 {
-  "plant": "Watermelon",
+  "name": "Watermelon",
   "type": null,
   "seedsPerOunce": "250",
-  "seedsPer100Feet": ["1", "oz"],
-  "sowingDepth": ["1/4", "inches"],
+  "seedsPer100Feet": "1 oz",
+  "sowingDepth": "1/4 inches",
   "daysTogermination": "10-14",
-  "rowSpacing": ["6-8", "feet"],
-  "plantSpacing": ["2-3", "feet"],
+  "rowSpacing": "6-8 feet",
+  "plantSpacing": "2-3 feet",
   "daysToHarvest": "75-90",
   "plantingDate": "Plant when soil is warm (after Memorial Day)."
 }
 
-### update plant's info by ID
-PUT http://cfowl-garden.herokuapp.com/plantsInfo/pasteIdHere HTTP/1.1
+### update seed by ID
+PUT http://cfowl-garden.herokuapp.com/seeds/pasteIdHere HTTP/1.1
 Content-Type: application/json
 
 {
-  "plant": "Watermelon",
+  "name": "Watermelon",
   "type": "Yummy",
   "seedsPerOunce": "250",
-  "seedsPer100Feet": ["1", "oz"],
-  "sowingDepth": ["1/4", "inches"],
+  "seedsPer100Feet": "1 oz",
+  "sowingDepth": "1/4 inches",
   "daysTogermination": "10-14",
-  "rowSpacing": ["6-8", "feet"],
-  "plantSpacing": ["2-3", "feet"],
+  "rowSpacing": "6-8 feet",
+  "plantSpacing": "2-3 feet",
   "daysToHarvest": "75-90",
   "plantingDate": "Plant when the soil is warm (after Memorial Day)."
 }
 
-### delete plant's info by ID
-DELETE http://cfowl-garden.herokuapp.com/plantsInfo/pasteIdHere HTTP/1.1
+### delete seed by ID
+DELETE http://cfowl-garden.herokuapp.com/seeds/pasteIdHere HTTP/1.1
 
 ###

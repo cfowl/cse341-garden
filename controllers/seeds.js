@@ -1,11 +1,11 @@
 const mongodb = require('../db/connect');
 const ObjectId = require('mongodb').ObjectId;
 
-// gets all plants' info
-async function getAllPlantsInfo(req, res) {
+// gets all seeds' info
+async function getAllSeeds(req, res) {
     try {
-        const plantsInfo = await mongodb.getDb().db().collection('plants-info').find();
-        plantsInfo.toArray().then(data => {
+        const seeds = await mongodb.getDb().db().collection('seeds').find();
+        seeds.toArray().then(data => {
             res.setHeader('Content-Type', 'application/json');
             res.status(200).json(data);
         });
@@ -14,12 +14,12 @@ async function getAllPlantsInfo(req, res) {
     }
 }
   
-// gets one plant's info by ID
-async function getOnePlantInfo(req, res) {
+// gets one  seed's info by ID
+async function getOneSeed(req, res) {
     try {
-        const plantId = new ObjectId(req.params.id);
-        const plantInfo = await mongodb.getDb().db().collection('plants-info').find({_id: plantId});
-        plantInfo.toArray().then(data => {
+        const seedId = new ObjectId(req.params.id);
+        const seedInfo = await mongodb.getDb().db().collection('seeds').find({_id: seedId});
+        seedInfo.toArray().then(data => {
             res.setHeader('Content-Type', 'application/json');
             res.status(200).json(data[0]);
         });
@@ -28,11 +28,11 @@ async function getOnePlantInfo(req, res) {
     }
 }
 
-// creates a new plant's info
-async function createPlantInfo(req, res) {
+// creates a new  seed's info
+async function createSeed(req, res) {
     try {
-        const plantInfo = {
-            plant: req.body.plant,
+        const seedInfo = {
+            name: req.body.name,
             type: req.body.type,
             seedsPerOunce: req.body.seedsPerOunce,
             seedsPer100Feet: req.body.seedsPer100Feet,
@@ -43,23 +43,23 @@ async function createPlantInfo(req, res) {
             daysToHarvest: req.body.daysToHarvest,
             plantingDate: req.body.plantingDate
         };
-        console.log(plantInfo);
-        const result = await mongodb.getDb().db().collection('plants-info').insertOne(plantInfo);
+        console.log(seedInfo);
+        const result = await mongodb.getDb().db().collection('seeds').insertOne(seedInfo);
         console.log(result);
         if(result.acknowledged) res.status(201).json(result);
-        else res.status(500).json(result.error || `An error occurred while inserting the plant's info`);
+        else res.status(500).json(result.error || `An error occurred while inserting the  seed's info`);
 
     } catch (err) {
         res.status(500).json({message: err.message});
     }
 }
 
-// updates one plant's info by ID
-async function updatePlantInfo(req, res) {
+// updates one  seed's info by ID
+async function updateSeed(req, res) {
     try {
-        const plantId = new ObjectId(req.params.id);
-        const plantInfo = {
-            plant: req.body.plant,
+        const seedId = new ObjectId(req.params.id);
+        const seedInfo = {
+            name: req.body.name,
             type: req.body.type,
             seedsPerOunce: req.body.seedsPerOunce,
             seedsPer100Feet: req.body.seedsPer100Feet,
@@ -70,25 +70,25 @@ async function updatePlantInfo(req, res) {
             daysToHarvest: req.body.daysToHarvest,
             plantingDate: req.body.plantingDate
         };
-        console.log(plantInfo);
-        const result = await mongodb.getDb().db().collection('plants-info').replaceOne({_id: plantId}, plantInfo);
+        console.log(seedInfo);
+        const result = await mongodb.getDb().db().collection('seeds').replaceOne({_id: seedId}, seedInfo);
         console.log(result);
         if(result.modifiedCount > 0) res.status(204).send();
-        else res.status(500).json(result.error || `An error occurred while updating the plant's info`);
+        else res.status(500).json(result.error || `An error occurred while updating the  seed's info`);
         
     } catch (err) {
         res.status(500).json({message: err.message});    
     }
 }
 
-// deletes a plant's info by ID
-async function deletePlantInfo(req, res) {
+// deletes a  seed's info by ID
+async function deleteSeed(req, res) {
     try {
-        const plantId = new ObjectId(req.params.id);
-        const result = await mongodb.getDb().db().collection('plants-info').deleteOne({_id: plantId});
+        const seedId = new ObjectId(req.params.id);
+        const result = await mongodb.getDb().db().collection('seeds').deleteOne({_id: seedId});
         console.log(result);
         if(result.deletedCount > 0) res.status(204).send();
-        else res.status(500).json(result.error || `An error occurred while deleting the plant's info`);
+        else res.status(500).json(result.error || `An error occurred while deleting the  seed's info`);
 
     } catch (err) {
         res.status(500).json({message: err.message});
@@ -96,9 +96,9 @@ async function deletePlantInfo(req, res) {
 }
 
 module.exports = {
-    getAllPlantsInfo,
-    getOnePlantInfo,
-    createPlantInfo,
-    updatePlantInfo,
-    deletePlantInfo
+    getAllSeeds,
+    getOneSeed,
+    createSeed,
+    updateSeed,
+    deleteSeed,
 };
