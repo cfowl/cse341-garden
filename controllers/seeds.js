@@ -1,22 +1,17 @@
-const mongodb = require('../db/connect');
 const ObjectId = require('mongodb').ObjectId;
+const db = require('../models');
+const Seed = db.seeds;
 
 // gets all seeds' info
 async function getAllSeeds(req, res) {
-    try {
-        mongodb
-          .getDb()
-          .db()
-          .collection('seeds')
-          .find()
-          .toArray((err, data) => {
-            if(err) res.status(400).json({message: err});
-            res.setHeader('Content-Type', 'application/json');
-            res.status(200).json(data);
-          });
-    } catch (error) {
-        res.status(500).json(error);
-    }
+    Seed.find()
+    .then(seeds => {
+        res.setHeader('Content-Type', 'application/json');
+        res.status(200).json(seeds);
+    })
+    .catch(err => {
+        res.status(500).json({message: err});
+    });
 }
   
 // gets one seed's info by ID
@@ -26,45 +21,44 @@ async function getOneSeed(req, res) {
         return;
     }
 
-    try {
-        const seedId = new ObjectId(req.params.id);
-        mongodb
-          .getDb()
-          .db()
-          .collection('seeds')
-          .find({_id: seedId})
-          .toArray((err, data) => {
-            if(err) res.status(400).json({message: err});
-            res.setHeader('Content-Type', 'application/json');
-            res.status(200).json(data[0]);
-          });
-    } catch (error) {
-        res.status(500).json(error);
-    }
+    Seed.findById(req.params.id)
+    .then(seed => {
+        res.setHeader('Content-Type', 'application/json');
+        res.status(200).json(seed);
+    })
+    .catch(err => {
+        res.status(500).json({message: err});
+    });
 }
 
 // creates a new seed's info
 async function createSeed(req, res) {
-    try {
-        const seedInfo = {
-            name: req.body.name,
-            type: req.body.type,
-            seedsPerOunce: req.body.seedsPerOunce,
-            seedsPer100Feet: req.body.seedsPer100Feet,
-            sowingDepth: req.body.sowingDepth,
-            daysToGermination: req.body.daysToGermination,
-            rowSpacing: req.body.rowSpacing,
-            plantSpacing: req.body.plantSpacing,
-            daysToHarvest: req.body.daysToHarvest,
-            plantingDate: req.body.plantingDate
-        };
-        const result = await mongodb.getDb().db().collection('seeds').insertOne(seedInfo);
-        console.log(result);
-        if(result.acknowledged) res.status(201).json(result);
-        else res.status(500).json(result.error || `An error occurred while inserting the seed's info`);
-    } catch (error) {
-        res.status(500).json(error);
-    }
+    const seed = new Seed({
+        name: req.body.name,
+        type: req.body.type || 'n/a',
+        seedsPerOunce: req.body.seedsPerOunce,
+        seedsPer100Feet: req.body.seedsPer100Feet,
+        sowingDepth: req.body.sowingDepth,
+        daysToGermination: req.body.daysToGermination,
+        rowSpacing: req.body.rowSpacing,
+        plantSpacing: req.body.plantSpacing,
+        daysToHarvest: req.body.daysToHarvest,
+        plantingDate: req.body.plantingDate
+    });
+
+    seed.save()
+    .then(seed => {
+        res.status(201).json({
+            message: 'Seed added successfully',
+            seed: seed
+        });
+    })
+    .catch(err => {
+        res.status(500).json({
+            message: 'Seed was not saved',
+            error: err
+        });
+    })
 }
 
 // updates one seed's info by ID
