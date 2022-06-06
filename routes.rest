@@ -124,7 +124,7 @@ Content-Type: application/json
   "seedsPerOunce": "250",
   "seedsPer100Feet": "1 oz",
   "sowingDepth": "1/4 inches",
-  "daysTogermination": "10-14",
+  "daysToGermination": "10-14",
   "rowSpacing": "6-8 feet",
   "plantSpacing": "2-3 feet",
   "daysToHarvest": "75-90",
