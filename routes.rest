@@ -29,12 +29,12 @@ PUT http://localhost:3000/seeds/pasteIdHere HTTP/1.1
 Content-Type: application/json
 
 {
-  "name": "Watermelon",
-  "type": "Yummy",
+  "name": "Watcha-ma-call-it?",
+  "type": "Yum Yum Yummy",
   "seedsPerOunce": "250",
   "seedsPer100Feet": "1 oz",
   "sowingDepth": "1/4 inches",
-  "daysTogermination": "10-14",
+  "daysToGermination": "10-14",
   "rowSpacing": "6-8 feet",
   "plantSpacing": "2-3 feet",
   "daysToHarvest": "75-90",
@@ -42,7 +42,7 @@ Content-Type: application/json
 }
 
 ### delete seed by ID
-DELETE http://localhost:3000/seeds/pasteIdHere HTTP/1.1
+DELETE http://localhost:3000/seeds/629c4b197b9a84efc42deb32 HTTP/1.1
 
 
 //++++++++++++++++++++++++++++++++ garden-log route ++++++++++++++++++++++++++++++++//
@@ -50,7 +50,7 @@ DELETE http://localhost:3000/seeds/pasteIdHere HTTP/1.1
 GET http://localhost:3000/garden-log
 
 ### get garden log entry by ID
-GET http://localhost:3000/garden-log/62925506f94e79661b50f35c
+GET http://localhost:3000/garden-log/62925dd6f94e79661b669ed8
 
 ### create new garden log entry
 POST http://localhost:3000/garden-log HTTP/1.1
@@ -58,8 +58,8 @@ Content-Type: application/json
 
 {
   "year": "2021",
-  "seedName": "Peas",
-  "seedType": "Snow",
+  "seedName": "Something-or-other",
+  "seedType": "???????",
   "variety": "Oregon Sugar Pod",
   "plantedQty": "20",
   "plantedDate": "05/28/2022",

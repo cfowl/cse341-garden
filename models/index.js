@@ -10,5 +10,6 @@ const db = {};
 db.mongoose = mongoose;
 db.url = process.env.MONGO_URI;
 db.seeds = require('./seeds.js')(mongoose);
+db.gardenLog = require('./garden-log.js')(mongoose);
 
 module.exports = db;

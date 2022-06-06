@@ -6,7 +6,6 @@ const Seed = db.seeds;
 async function getAllSeeds(req, res) {
     Seed.find()
     .then(seeds => {
-        res.setHeader('Content-Type', 'application/json');
         res.status(200).json(seeds);
     })
     .catch(err => {
@@ -23,8 +22,8 @@ async function getOneSeed(req, res) {
 
     Seed.findById(req.params.id)
     .then(seed => {
-        res.setHeader('Content-Type', 'application/json');
-        res.status(200).json(seed);
+        if(!seed) res.status(404).json({ message: `Seed with that ID not found!` });
+        else res.status(200).json(seed);
     })
     .catch(err => {
         res.status(500).json({message: err});
@@ -45,7 +44,7 @@ async function createSeed(req, res) {
         daysToHarvest: req.body.daysToHarvest,
         plantingDate: req.body.plantingDate
     });
-
+    // Save the seed we just created
     seed.save()
     .then(seed => {
         res.status(201).json({
@@ -58,7 +57,7 @@ async function createSeed(req, res) {
             message: 'Seed was not saved',
             error: err
         });
-    })
+    });
 }
 
 // updates one seed's info by ID
@@ -67,28 +66,18 @@ async function updateSeed(req, res) {
         res.status(400).json('Must use a valid seed ID to update a seed\'s info.');
         return;
     }
-    
-    try {
-        const seedId = new ObjectId(req.params.id);
-        const seedInfo = {
-            name: req.body.name,
-            type: req.body.type,
-            seedsPerOunce: req.body.seedsPerOunce,
-            seedsPer100Feet: req.body.seedsPer100Feet,
-            sowingDepth: req.body.sowingDepth,
-            daysToGermination: req.body.daysToGermination,
-            rowSpacing: req.body.rowSpacing,
-            plantSpacing: req.body.plantSpacing,
-            daysToHarvest: req.body.daysToHarvest,
-            plantingDate: req.body.plantingDate
-        };
-        const result = await mongodb.getDb().db().collection('seeds').replaceOne({_id: seedId}, seedInfo);
-        console.log(result);
-        if(result.modifiedCount > 0) res.status(204).send();
-        else res.status(500).json(result.error || `An error occurred while updating the seed's info`);
-    } catch (error) {
-        res.status(500).json(error);
-    }
+
+    Seed.findByIdAndUpdate(req.params.id, req.body, { useFindAndModify: false })
+    .then(seed => {
+        if(!seed) res.status(404).json({ message: `Seed with that ID was not found and could not be updated!`});
+        else res.status(204).json({ message: `The seed was updated successfully!`});
+    })
+    .catch(err => {
+        res.status(500).json({
+            message: 'Seed was not updated!',
+            error: err
+        });
+    });
 }
 
 // deletes a seed's info by ID
@@ -97,16 +86,18 @@ async function deleteSeed(req, res) {
         res.status(400).json('Must use a valid seed ID to delete a seed\'s info.');
         return;
     }
-    
-    try {
-        const seedId = new ObjectId(req.params.id);
-        const result = await mongodb.getDb().db().collection('seeds').deleteOne({_id: seedId});
-        console.log(result);
-        if(result.deletedCount > 0) res.status(204).send();
-        else res.status(500).json(result.error || `An error occurred while deleting the  seed's info`);
-    } catch (error) {
-        res.status(500).json(error);
-    }
+
+    Seed.findByIdAndRemove(req.params.id)
+    .then(seed => {
+        if(!seed) res.status(404).json({ message: `Seed with that ID was not found and coule not be deleted!`});
+        else res.status(204).json({ message: `The seed was deleted successfully!`});
+    })
+    .catch(err => {
+        res.status(500).json({
+            message: 'Seed was not deleted!',
+            error: err
+        });
+    });
 }
 
 module.exports = {

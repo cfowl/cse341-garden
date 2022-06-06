@@ -51,14 +51,3 @@ module.exports = (mongoose) => {
     return Seed;
 
 };
-
-// name: String,
-// type: String,
-// seedsPerOunce: Number,
-// seedsPer100Feet: String,
-// sowingDepth: String,
-// daysToGermination: String,
-// rowSpacing: String,
-// plantSpacing: String,
-// daysToHarvest: String,
-// plantingDate: String
