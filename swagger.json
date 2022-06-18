@@ -2,7 +2,7 @@
   "swagger": "2.0",
   "info": {
     "title": "My Garden API",
-    "description": "Chris Fowler's Personal Project for CSE341",
+    "description": "Chris Fowler's Personal Project for CSE341&emsp;<a href='/auth/logout'>Log Out</a>",
     "version": "1.0.0"
   },
   "host": "cfowl-garden.herokuapp.com",

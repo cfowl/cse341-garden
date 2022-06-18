@@ -49,5 +49,4 @@ module.exports = (mongoose) => {
     );
 
     return Seed;
-
 };
