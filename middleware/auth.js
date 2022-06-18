@@ -1,1 +1,1 @@
-module.exports={ensureAuth:(req,res,next)=>{if(req.isAuthenticated())return next();res.redirect("/")},ensureGuest:(req,res,next)=>{if(!req.isAuthenticated())return next();res.redirect("/api-docs")}};
+module.exports={ensureAuth:(req,res,next)=>{if(req.isAuthenticated())return next();res.redirect("/")},ensureGuest:(req,res,next)=>{if(!req.isAuthenticated())return next();res.redirect("https://cfowl-garden.herokuapp.com/api-docs")}};
