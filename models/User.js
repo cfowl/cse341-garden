@@ -1,34 +1,64 @@
-module.exports = (mongoose) => {
-    const User = mongoose.model(
-        'users',
-        mongoose.Schema(
-            {
-                googleId: {
-                    type: String,
-                    required: true
-                },
-                displayName: {
-                    type: String,
-                    required: true
-                },
-                firstName: {
-                    type: String,
-                    required: true
-                },
-                lastName: {
-                    type: String,
-                    required: true
-                },
-                image: {
-                    type: String
-                },
-                dateCreated: {
-                    type: Date,
-                    default: Date.now
-                }
-            }
-        )
-    );
+const mongoose = require('mongoose');
 
-    return User;
-};
+const UserSchema = new mongoose.Schema({
+    googleId: {
+        type: String,
+        required: true
+    },
+    displayName: {
+        type: String,
+        required: true
+    },
+    firstName: {
+        type: String,
+        required: true
+    },
+    lastName: {
+        type: String,
+        required: true
+    },
+    image: {
+        type: String
+    },
+    dateCreated: {
+        type: Date,
+        default: Date.now
+    }
+});
+
+module.exports = mongoose.model('User', UserSchema);
+
+// module.exports = (mongoose) => {
+//         const User = mongoose.model(
+//             'users',
+//             mongoose.Schema(
+//                 {
+//                     googleId: {
+//                         type: String,
+//                         required: true
+//                     },
+//                     displayName: {
+//                         type: String,
+//                         required: true
+//                     },
+//                     firstName: {
+//                         type: String,
+//                         required: true
+//                     },
+//                     lastName: {
+//                         type: String,
+//                         required: true
+//                     },
+//                     image: {
+//                         type: String
+//                     },
+//                     dateCreated: {
+//                         type: Date,
+//                         default: Date.now
+//                     }
+//                 }
+//             )
+//         );
+    
+//         return User;
+//     };
