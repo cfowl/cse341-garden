@@ -9,8 +9,8 @@ dotenv.config({ path: './config/config.env'});
 const db = {};
 db.mongoose = mongoose;
 db.url = process.env.MONGO_URI;
-db.seeds = require('./Seed')(mongoose);
-db.gardenLog = require('./Garden-Log')(mongoose);
-db.users = require('./User');
+db.seeds = require('./Seed.js')(mongoose);
+db.gardenLog = require('./Garden-Log.js')(mongoose);
+db.users = require('./User.js');
 
 module.exports = db;
